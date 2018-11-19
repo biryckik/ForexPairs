@@ -3,30 +3,104 @@ title: "Forex Pairs Trading - test ride"
 author: "Konrad Birycki"
 date: "19 listopada 2018"
 output: 
-  html_document: 
+  html_document:
     keep_md: yes
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r}
+library(PerformanceAnalytics)
+library(tseries)
+library(XML)
+
+
+setwd('C://Users/Kasia/Documents/ProjektyR/Trading')
+
+download_files <- F
+
+# 1 data handling ---------------------------------------------------------------
+
+#TODO: deduplicate each series
+#read.table('http://bossafx.pl/pub/metastock/forex/sesjafx/sesjafx.prn')
+
+if(download_files) {
+  temp <- tempfile()
+  download.file("http://bossafx.pl/pub/metastock/forex/mstfx.zip",temp)
+  mstfx <- lapply(unzip(temp, list = T)$Name,
+                  function(x) read.csv(unzip(temp, x), stringsAsFactors = F))
+  mstfx <- setNames(mstfx, gsub('mst$', '', unzip(temp, list = T)$Name))
+  unlink(temp)
+  
+  lapply(mstfx, function(x) colnames(x) <<- gsub('\\.|^X', '', names(x)))
+  
+  data <- setNames(lapply(mstfx,
+                          function(x) xts(x[,-1:-2],
+                                          order.by = as.Date(as.character(x[,2]),
+                                                             '%Y%m%d'))), names(mstfx))
+  
+  paired_names <- lapply(unique(gsub('\\.', '', names(data))),
+                         function(x) grep(x, names(data), value = T))
+  
+  data <- setNames(lapply(paired_names, function(x) rbind.xts(data[[x[1]]], data[[x[2]]])),
+                   unique(gsub('\\.', '', names(data))))
+  rm(paired_names)
+  
+  data <- lapply(data, setNames, nm = c('Open', 'High', 'Low', 'Close', 'Vol'))
+  saveRDS(data, './Data/mstfx.rds')
+}
+
+download_files <- FALSE
+
+
+# 2 Instrument specs --------------------------------------------------------------
+
+tbls_xml <- readHTMLTable('http://bossafx.pl/fx/oferta/instrumenty/specyfikacja/')
+
+
+# 3 Model development ---------------------------------------------------------------
+
+data <- readRDS('./Data/mstfx.rds')
+data_tmp <- setNames(do.call('cbind.xts', lapply(data, function(x) x[,'Close'])),
+                     names(data))
+data_tmp <- data_tmp[ ! duplicated( index(data_tmp), fromLast = TRUE ),  ] 
+  
+m1 <- lm( USDRUB ~ FOIL, data_tmp)
+summary(m1)
+plot(xts(m1$residuals, as.Date(names(m1$residuals))), type = 'l')
+(tmp <- tseries::adf.test(m1$residuals))
+
+m2 <- lm( 1/USDRUB~FOIL, data_tmp)
+summary(m2)
+plot(xts(m2$residuals, as.Date(names(m2$residuals))), type = 'l')
+(tmp <- tseries::adf.test(m2$residuals))
+
+# WE PICK M1
+
+# 4 combinations ---------------------------------------------------------------
+
+formulas <- lapply(combn(names(data_tmp), 2, simplify = F),
+                   function(x) as.formula(paste0(x[1],'~', x[2])))
+
+#tmp <- strsplit(as.character(formulas),' ~ ')
+#lapply(tmp, function(x) x<<-ifelse(grepl('USD|EUR|GBP|JPY|CHF', x[1]) & grepl('USD|EUR|GBP|JPY|CHF', x[2]), c('a', 'b'), x))
+
+models <- lapply(formulas, function(x) lm(x, data_tmp))
+names(models) <- as.character(formulas)
+results <- lapply(models,
+                  function(x)
+                    data.frame(r.squared = summary(x)$r.squared,
+                               N = x$df.residual,
+                               adf.parameter = adf.test(x$residuals)$parameter,
+                               adf.p.value = adf.test(x$residuals)$p.value,
+                               scaled.last.resid = last(x$residuals)/summary(x)$sigma,
+                               coef0 <- x$coef[1], coef1 <- x$coef[2])
+                  
+                  )
+results <- do.call('rbind', results)
+results_selected <- subset(results, r.squared > .75 & N > 800 & adf.p.value < 0.25
+                           & (scaled.last.resid > 1.96 |  scaled.last.resid < -1.96))
+models_selected <- models[names(models) %in% row.names(results_selected)]
+
+lapply(models_selected,
+       function(x) plot(xts(x$residuals, as.Date(names(x$residuals))),
+                        main = formula(x$terms)))
 ```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
