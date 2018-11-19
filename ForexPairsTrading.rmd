@@ -1,8 +1,10 @@
 ---
-title: "Forex Pairs Trading"
+title: "Forex Pairs Trading - test ride"
 author: "Konrad Birycki"
 date: "19 listopada 2018"
-output: html_document
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 ```{r setup, include=FALSE}
