@@ -128,25 +128,1215 @@ $(document).ready(function () {
 </div>
 
 
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
-</div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
-</div>
+<pre class="r"><code>library(PerformanceAnalytics)</code></pre>
+<pre><code>## Loading required package: xts</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: 'zoo'</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## 
+## Attaching package: 'PerformanceAnalytics'</code></pre>
+<pre><code>## The following object is masked from 'package:graphics':
+## 
+##     legend</code></pre>
+<pre class="r"><code>library(tseries)
+library(XML)
+
+
+setwd('C://Users/Kasia/Documents/ProjektyR/Trading')
+
+download_files &lt;- F
+
+# 1 data handling ---------------------------------------------------------------
+
+#TODO: deduplicate each series
+#read.table('http://bossafx.pl/pub/metastock/forex/sesjafx/sesjafx.prn')
+
+if(download_files) {
+  temp &lt;- tempfile()
+  download.file(&quot;http://bossafx.pl/pub/metastock/forex/mstfx.zip&quot;,temp)
+  mstfx &lt;- lapply(unzip(temp, list = T)$Name,
+                  function(x) read.csv(unzip(temp, x), stringsAsFactors = F))
+  mstfx &lt;- setNames(mstfx, gsub('mst$', '', unzip(temp, list = T)$Name))
+  unlink(temp)
+  
+  lapply(mstfx, function(x) colnames(x) &lt;&lt;- gsub('\\.|^X', '', names(x)))
+  
+  data &lt;- setNames(lapply(mstfx,
+                          function(x) xts(x[,-1:-2],
+                                          order.by = as.Date(as.character(x[,2]),
+                                                             '%Y%m%d'))), names(mstfx))
+  
+  paired_names &lt;- lapply(unique(gsub('\\.', '', names(data))),
+                         function(x) grep(x, names(data), value = T))
+  
+  data &lt;- setNames(lapply(paired_names, function(x) rbind.xts(data[[x[1]]], data[[x[2]]])),
+                   unique(gsub('\\.', '', names(data))))
+  rm(paired_names)
+  
+  data &lt;- lapply(data, setNames, nm = c('Open', 'High', 'Low', 'Close', 'Vol'))
+  saveRDS(data, './Data/mstfx.rds')
+}
+
+download_files &lt;- FALSE
+
+
+# 2 Instrument specs --------------------------------------------------------------
+
+tbls_xml &lt;- readHTMLTable('http://bossafx.pl/fx/oferta/instrumenty/specyfikacja/')
+
+
+# 3 Model development ---------------------------------------------------------------
+
+data &lt;- readRDS('./Data/mstfx.rds')
+data_tmp &lt;- setNames(do.call('cbind.xts', lapply(data, function(x) x[,'Close'])),
+                     names(data))
+data_tmp &lt;- data_tmp[ ! duplicated( index(data_tmp), fromLast = TRUE ),  ] 
+  
+m1 &lt;- lm( USDRUB ~ FOIL, data_tmp)
+summary(m1)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = USDRUB ~ FOIL, data = data_tmp)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -10.9472  -3.9510  -0.3258   2.4231  18.8416 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 91.221436   0.443053  205.89   &lt;2e-16 ***
+## FOIL        -0.578678   0.006184  -93.58   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 5.641 on 1588 degrees of freedom
+##   (12666 observations deleted due to missingness)
+## Multiple R-squared:  0.8465, Adjusted R-squared:  0.8464 
+## F-statistic:  8757 on 1 and 1588 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>plot(xts(m1$residuals, as.Date(names(m1$residuals))), type = 'l')</code></pre>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<pre class="r"><code>(tmp &lt;- tseries::adf.test(m1$residuals))</code></pre>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  m1$residuals
+## Dickey-Fuller = -2.8888, Lag order = 11, p-value = 0.2021
+## alternative hypothesis: stationary</code></pre>
+<pre class="r"><code>m2 &lt;- lm( 1/USDRUB~FOIL, data_tmp)
+summary(m2)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = 1/USDRUB ~ FOIL, data = data_tmp)
+## 
+## Residuals:
+##        Min         1Q     Median         3Q        Max 
+## -0.0081384 -0.0014562  0.0002188  0.0014854  0.0066181 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 2.653e-03  2.171e-04   12.22   &lt;2e-16 ***
+## FOIL        2.719e-04  3.030e-06   89.73   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.002764 on 1588 degrees of freedom
+##   (12666 observations deleted due to missingness)
+## Multiple R-squared:  0.8352, Adjusted R-squared:  0.8351 
+## F-statistic:  8051 on 1 and 1588 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>plot(xts(m2$residuals, as.Date(names(m2$residuals))), type = 'l')</code></pre>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<pre class="r"><code>(tmp &lt;- tseries::adf.test(m2$residuals))</code></pre>
+<pre><code>## 
+##  Augmented Dickey-Fuller Test
+## 
+## data:  m2$residuals
+## Dickey-Fuller = -2.7648, Lag order = 11, p-value = 0.2546
+## alternative hypothesis: stationary</code></pre>
+<pre class="r"><code># WE PICK M1
+
+# 4 combinations ---------------------------------------------------------------
+
+formulas &lt;- lapply(combn(names(data_tmp), 2, simplify = F),
+                   function(x) as.formula(paste0(x[1],'~', x[2])))
+
+#tmp &lt;- strsplit(as.character(formulas),' ~ ')
+#lapply(tmp, function(x) x&lt;&lt;-ifelse(grepl('USD|EUR|GBP|JPY|CHF', x[1]) &amp; grepl('USD|EUR|GBP|JPY|CHF', x[2]), c('a', 'b'), x))
+
+models &lt;- lapply(formulas, function(x) lm(x, data_tmp))
+names(models) &lt;- as.character(formulas)
+results &lt;- lapply(models,
+                  function(x)
+                    data.frame(r.squared = summary(x)$r.squared,
+                               N = x$df.residual,
+                               adf.parameter = adf.test(x$residuals)$parameter,
+                               adf.p.value = adf.test(x$residuals)$p.value,
+                               scaled.last.resid = last(x$residuals)/summary(x)$sigma,
+                               coef0 &lt;- x$coef[1], coef1 &lt;- x$coef[2])
+                  
+                  )</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value
+
+## Warning in adf.test(x$residuals): p-value smaller than printed p-value</code></pre>
+<pre><code>## Warning in adf.test(x$residuals): p-value greater than printed p-value
+
+## Warning in adf.test(x$residuals): p-value greater than printed p-value</code></pre>
+<pre class="r"><code>results &lt;- do.call('rbind', results)
+results_selected &lt;- subset(results, r.squared &gt; .75 &amp; N &gt; 800 &amp; adf.p.value &lt; 0.25
+                           &amp; (scaled.last.resid &gt; 1.96 |  scaled.last.resid &lt; -1.96))
+models_selected &lt;- models[names(models) %in% row.names(results_selected)]
+
+lapply(models_selected,
+       function(x) plot(xts(x$residuals, as.Date(names(x$residuals))),
+                        main = formula(x$terms)))</code></pre>
+<pre><code>## $`FCOPPER ~ PLATINUM`</code></pre>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<pre><code>## 
+## $`FEU50 ~ FFR40`</code></pre>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<pre><code>## 
+## $`FSCHATZ2 ~ FTNOTE10`</code></pre>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 
 
 
